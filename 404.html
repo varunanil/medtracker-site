@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Med Tracker</title>
+<style>
+  :root { color-scheme: light dark; --bg: #f8f7fc; --fg: #1b1b21; --muted: #5d5e67; --accent: #475d92; --on-accent: #ffffff; --card: #ffffff; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #131318; --fg: #e4e1e9; --muted: #a9a9b3; --accent: #b0c6ff; --on-accent: #142e60; --card: #1f1f25; } }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.5 system-ui, sans-serif; }
+  main { max-width: 32rem; margin: 0 auto; padding: 40px 16px; }
+  h1 { font-size: 1.5rem; line-height: 1.3; margin: 0 0 12px; }
+  p { margin: 0 0 16px; }
+  .muted { color: var(--muted); }
+  .button { display: block; text-align: center; background: var(--accent); color: var(--on-accent); text-decoration: none;
+            font-weight: 600; padding: 14px 16px; border-radius: 999px; margin: 24px 0; }
+  .card { background: var(--card); border-radius: 16px; padding: 16px; margin: 16px 0; }
+  .code { font: 600 1.5rem/1.2 ui-monospace, monospace; letter-spacing: 0.08em; }
+  [hidden] { display: none; }
+</style>
+</head>
+<body>
+<main>
+  <section id="link" hidden>
+    <p id="noapp" class="muted" hidden>Med Tracker isn't on this phone, or it couldn't open the link.</p>
+    <h1>Someone asked to see your medicines in Med Tracker</h1>
+    <p class="muted">This link lets them see your medicines and doses in Med Tracker. They can't change anything, and you can stop sharing at any time.</p>
+    <a id="open" class="button" href="#">Open in Med Tracker</a>
+    <div class="card">
+      <p>Don't have the app? It isn't in the Play Store, so ask the person who sent this link for it.</p>
+      <p>Or open Med Tracker, go to People, tap Allow someone to follow, and type this code:</p>
+      <p id="code" class="code"></p>
+      <p class="muted">Codes last 15 minutes.</p>
+    </div>
+  </section>
+  <section id="missing" hidden>
+    <h1>Page not found</h1>
+    <p class="muted">This link doesn't lead anywhere. Check that it was copied in full.</p>
+  </section>
+</main>
+<script>
+  (function () {
+    var m = /^\/(dev\/)?i\/([A-HJ-NP-Z2-9]{8})\/?$/i.exec(location.pathname);
+    if (!m) { document.getElementById('missing').hidden = false; return; }
+    var dev = !!m[1];
+    var code = m[2].toUpperCase();
+    document.getElementById('code').textContent = code.slice(0, 4) + '-' + code.slice(4);
+    if (new URLSearchParams(location.search).get('noapp') === '1') document.getElementById('noapp').hidden = false;
+    var fallback = location.origin + location.pathname + '?noapp=1';
+    document.getElementById('open').href = 'intent://app/follow/' + code + '#Intent;scheme=' +
+      (dev ? 'medtracker-dev' : 'medtracker') + ';package=' + (dev ? 'dev.varun.medtracker.dev' : 'dev.varun.medtracker') +
+      ';S.browser_fallback_url=' + encodeURIComponent(fallback) + ';end';
+    document.getElementById('link').hidden = false;
+  })();
+</script>
+</body>
+</html>

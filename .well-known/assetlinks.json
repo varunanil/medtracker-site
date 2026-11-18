@@ -1,0 +1,18 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "dev.varun.medtracker",
+      "sha256_cert_fingerprints": ["D7:84:0C:27:36:8D:27:1A:5F:64:5A:0C:C5:9E:B3:49:9A:AE:2D:F2:F6:FF:AA:44:0D:11:B1:BF:C1:84:60:8B"]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "dev.varun.medtracker.dev",
+      "sha256_cert_fingerprints": ["5C:58:CD:C7:AF:37:14:80:C6:A6:E0:C6:AC:5F:04:C2:02:D4:83:B5:B7:E1:F9:10:FB:06:38:3D:3B:25:2A:4A"]
+    }
+  }
+]
