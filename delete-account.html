@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Delete your Med Tracker account</title>
+<style>
+  :root { color-scheme: light dark; --bg: #f8f7fc; --fg: #1b1b21; --muted: #5d5e67; --accent: #475d92; --card: #ffffff; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #131318; --fg: #e4e1e9; --muted: #a9a9b3; --accent: #b0c6ff; --card: #1f1f25; } }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.5 system-ui, sans-serif; }
+  main { max-width: 32rem; margin: 0 auto; padding: 40px 16px; }
+  h1 { font-size: 1.5rem; line-height: 1.3; margin: 0 0 12px; }
+  h2 { font-size: 1.15rem; margin: 32px 0 8px; }
+  p, ul, ol { margin: 0 0 16px; }
+  li { margin-bottom: 4px; }
+  a { color: var(--accent); overflow-wrap: anywhere; }
+  .muted { color: var(--muted); }
+  .card { background: var(--card); border-radius: 16px; padding: 16px; margin: 16px 0; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Delete your Med Tracker account</h1>
+  <p class="muted">Med Tracker is a medicine reminder app for Android, made by Varun Anil. This page explains how to delete your account and what happens to your data.</p>
+
+  <h2>In the app</h2>
+  <ol>
+    <li>Open Med Tracker and go to Settings.</li>
+    <li>Under Account, tap <strong>Delete account</strong>.</li>
+    <li>Read the message and tap <strong>Delete account</strong> again.</li>
+  </ol>
+  <p>The phone needs to be online. The account is deleted straight away.</p>
+
+  <h2>Without the app</h2>
+  <div class="card">
+    <p>Email <a href="mailto:medtracker@ap1.varunanil.dev?subject=Delete%20my%20Med%20Tracker%20account">medtracker@ap1.varunanil.dev</a> from the email address you sign in with (or your Google account's email, if you sign in with Google), asking for your account to be deleted.</p>
+    <p class="muted" style="margin:0">We delete it within 7 days and reply to confirm. If the request comes from a different address, we will ask you to confirm from the account's address first.</p>
+  </div>
+
+  <h2>What is deleted</h2>
+  <p>Everything Med Tracker stores for your account on its server:</p>
+  <ul>
+    <li>your account and sign-in details</li>
+    <li>your medicines, schedules, refills and dose history</li>
+    <li>your settings, your list of phones, and the tokens used to send you alerts</li>
+    <li>your sharing: the people who see your medicines, the people whose medicines you see, and the share links you made</li>
+    <li>missed-dose alerts sent to or about you</li>
+  </ul>
+  <p>People you shared with stop seeing your medicines at once. They are not notified.</p>
+
+  <h2>What is kept</h2>
+  <ul>
+    <li>A record that an account was deleted, with the date and how many medicines, doses, phones and sharing connections it had. It holds no name, email or account id.</li>
+    <li>Our hosting provider, Supabase, keeps a log of sign-in events, and daily backups for 7 days. Your data leaves the backups after 7 days.</li>
+  </ul>
+
+  <h2>On your phone</h2>
+  <p>Deleting the account does not remove what is on the phone you used as your main phone: your medicines and reminders stay there, so reminders keep ringing. Uninstall the app to remove them. On your other phones, the account's medicines are removed.</p>
+
+  <h2>Starting again</h2>
+  <p>You can sign in again any time with the same email or Google account. That makes a new, empty account.</p>
+</main>
+</body>
+</html>
